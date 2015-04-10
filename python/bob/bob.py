@@ -2,12 +2,21 @@ import re
 
 def hey(what):
     what = what.strip()
-    with_force = (re.search("[A-Za-z]",what) and what.upper() == what)
-    if re.search("\?$", what) and not with_force:
+
+    if is_question(what) and not is_forceful(what):
         return "Sure."
-    elif "" == what:
+    elif is_silent(what):
         return "Fine. Be that way!"
-    elif with_force:
+    elif is_forceful(what):
         return "Whoa, chill out!"
     else:
         return "Whatever."
+
+def is_question(what):
+    return re.search("\?$", what)
+
+def is_forceful(what):
+    return (re.search("[A-Za-z]",what) and what.upper() == what)
+
+def is_silent(what):
+    return "" == what
