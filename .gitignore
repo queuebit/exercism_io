@@ -1,3 +1,4 @@
+# Projects to ignore
 clojure/
 cpp/
 csharp/
@@ -15,3 +16,6 @@ perl5/
 plsql/
 scala/
 swift/
+
+# Filetypes to ignore
+*.pyc
