@@ -1,3 +1,4 @@
+# Projects to ignore
 clojure/
 cpp/
 csharp/
@@ -13,7 +14,9 @@ objective-c/
 ocaml/
 perl5/
 plsql/
-python/
 scala/
 swift/
 */*/node_modules/*
+
+# Filetypes to ignore
+*.pyc
