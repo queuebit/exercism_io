@@ -4,8 +4,12 @@ class Anagram {
     this.letters = this.tokenize(word)
   }
 
-  matches(words) {
+  matches(words, ...otherWords) {
     var self = this
+    if (typeof words == 'string')
+      words = [words]
+    if (otherWords.length > 0)
+      words = words.concat(otherWords)
     return words.filter(function (w) {
       if (self.isAnagram(w))
         return w
@@ -13,19 +17,14 @@ class Anagram {
   }
 
   tokenize(word) {
-    var letters = {}
-    word.split('').forEach(function (l) {
-      var prev = letters[l] || 0
-      letters[l] = prev + 1
-    })
-    return letters
+    return word.toLowerCase().split('').sort().join('')
   }
 
   isAnagram(ana) {
     if (this.word.length != ana.length)
       return false
-    console.log(this.letters)
-    console.log(this.tokenize(ana))
+    if (this.word.toLowerCase() == ana.toLowerCase())
+      return false
     return this.letters == this.tokenize(ana)
 
   }

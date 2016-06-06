@@ -20,6 +20,13 @@ var Anagram = (function () {
     key: 'matches',
     value: function matches(words) {
       var self = this;
+      if (typeof words == 'string') words = [words];
+
+      for (var _len = arguments.length, otherWords = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        otherWords[_key - 1] = arguments[_key];
+      }
+
+      if (otherWords.length > 0) words = words.concat(otherWords);
       return words.filter(function (w) {
         if (self.isAnagram(w)) return w;
       });
@@ -27,19 +34,13 @@ var Anagram = (function () {
   }, {
     key: 'tokenize',
     value: function tokenize(word) {
-      var letters = {};
-      word.split('').forEach(function (l) {
-        var prev = letters[l] || 0;
-        letters[l] = prev + 1;
-      });
-      return letters;
+      return word.toLowerCase().split('').sort().join('');
     }
   }, {
     key: 'isAnagram',
     value: function isAnagram(ana) {
       if (this.word.length != ana.length) return false;
-      console.log(this.letters);
-      console.log(this.tokenize(ana));
+      if (this.word.toLowerCase() == ana.toLowerCase()) return false;
       return this.letters == this.tokenize(ana);
     }
   }]);

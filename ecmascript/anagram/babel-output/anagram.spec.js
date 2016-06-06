@@ -29,56 +29,56 @@ describe('Anagram', function () {
     expect(matches).toEqual([]);
   });
 
-  xit("detects multiple anagrams", function () {
+  it("detects multiple anagrams", function () {
     var subject = new _anagramJs2['default']("master");
     var matches = subject.matches(['stream', 'pigeon', 'maters']);
 
     expect(matches).toEqual(['stream', 'maters']);
   });
 
-  xit("does not detect anagram subsets", function () {
+  it("does not detect anagram subsets", function () {
     var subject = new _anagramJs2['default']("good");
     var matches = subject.matches(['dog', 'goody']);
 
     expect(matches).toEqual([]);
   });
 
-  xit("detects anagram", function () {
+  it("detects anagram", function () {
     var subject = new _anagramJs2['default']("listen");
     var matches = subject.matches(['enlists', 'google', 'inlets', 'banana']);
 
     expect(matches).toEqual(['inlets']);
   });
 
-  xit("detects multiple anagrams", function () {
+  it("detects multiple anagrams", function () {
     var subject = new _anagramJs2['default']("allergy");
     var matches = subject.matches(['gallery', 'ballerina', 'regally', 'clergy', 'largely', 'leading']);
 
     expect(matches).toEqual(['gallery', 'regally', 'largely']);
   });
 
-  xit("detects anagrams case-insensitively", function () {
+  it("detects anagrams case-insensitively", function () {
     var subject = new _anagramJs2['default']("Orchestra");
     var matches = subject.matches(['cashregister', 'Carthorse', 'radishes']);
 
     expect(matches).toEqual(['Carthorse']);
   });
 
-  xit("does not detect a word as its own anagram", function () {
+  it("does not detect a word as its own anagram", function () {
     var subject = new _anagramJs2['default']("banana");
     var matches = subject.matches(['Banana']);
 
     expect(matches).toEqual([]);
   });
 
-  xit("matches() accepts string arguments", function () {
+  it("matches() accepts string arguments", function () {
     var subject = new _anagramJs2['default']("ant");
     var matches = subject.matches("stand", "tan", "at");
 
     expect(matches).toEqual(["tan"]);
   });
 
-  xit("matches() accepts single string argument", function () {
+  it("matches() accepts single string argument", function () {
     var subject = new _anagramJs2['default']("ant");
     var matches = subject.matches("tan");
 
