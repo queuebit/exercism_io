@@ -30,13 +30,18 @@ var Robot = (function () {
   function Robot() {
     _classCallCheck(this, Robot);
 
-    this.name = Robot.robotName();
+    this.robotName = Robot.robotName();
   }
 
   _createClass(Robot, [{
     key: 'reset',
     value: function reset() {
-      this.name = Robot.robotName();
+      this.robotName = Robot.robotName();
+    }
+  }, {
+    key: 'name',
+    get: function get() {
+      return this.robotName;
     }
   }]);
 

@@ -14,10 +14,13 @@ class Robot {
     return name
   }
   constructor() {
-    this.name = Robot.robotName()
+    this.robotName = Robot.robotName()
+  }
+  get name() {
+    return this.robotName
   }
   reset() {
-    this.name = Robot.robotName()
+    this.robotName = Robot.robotName()
   }
 }
 
