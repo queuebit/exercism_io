@@ -18,12 +18,9 @@ var Hamming = (function () {
     value: function compute(seq1, seq2) {
       if (seq1.length != seq2.length) throw new Error('DNA strands must be of equal length.');
 
-      var distance = 0;
-      seq1.split('').forEach(function (a1, i) {
-        if (a1 != seq2[i]) distance += 1;
-      });
-
-      return distance;
+      return seq1.split('').reduce(function (d, a1, i) {
+        return a1 != seq2[i] ? d + 1 : d;
+      }, 0);
     }
   }]);
 
