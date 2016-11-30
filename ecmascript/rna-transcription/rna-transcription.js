@@ -1,12 +1,12 @@
 class Transcriptor {
   toRna(seq) {
-    const DNATORNA = {
+    const DNA_TO_RNA = {
       'C': 'G',
       'G': 'C',
       'A': 'U',
       'T': 'A'
     }
-    return seq.split('').map(function (a) { return DNATORNA[a] }).join('')
+    return seq.split('').map(function (a) { return DNA_TO_RNA[a] }).join('')
   }
 }
 

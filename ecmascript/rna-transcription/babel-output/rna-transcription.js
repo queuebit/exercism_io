@@ -16,14 +16,14 @@ var Transcriptor = (function () {
   _createClass(Transcriptor, [{
     key: 'toRna',
     value: function toRna(seq) {
-      var DNATORNA = {
+      var DNA_TO_RNA = {
         'C': 'G',
         'G': 'C',
         'A': 'U',
         'T': 'A'
       };
       return seq.split('').map(function (a) {
-        return DNATORNA[a];
+        return DNA_TO_RNA[a];
       }).join('');
     }
   }]);
